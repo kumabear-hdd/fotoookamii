@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#f7dfe3" />
+<title>Album Kenangan Kita ♡</title>
+<meta name="description" content="Kumpulan kenangan indah kita, dari sekolah sampai rumah." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💗</text></svg>" />
+</head>
+<body>
+
+<!-- ══════════ PRELOADER ══════════ -->
+<div id="preloader">
+  <div class="pl-heart">
+    <svg viewBox="0 0 32 29" aria-hidden="true"><path d="M16 29S2 20.3 2 10.9C2 5.9 6 2 10.7 2c2.9 0 5.3 1.5 6.6 3.9C18.6 3.5 21 2 23.9 2 28.6 2 32.6 5.9 32.6 10.9 32.6 20.3 16 29 16 29z" transform="translate(-1)"/></svg>
+  </div>
+  <p class="pl-text" id="plText">Menyiapkan kenangan kita…</p>
+  <div class="pl-bar"><span></span></div>
+</div>
+
+<!-- ══════════ FLOATING PETALS / EMOJI ══════════ -->
+<div id="petals" aria-hidden="true"></div>
+
+<!-- ══════════ CURSOR HEART TRAIL ══════════ -->
+<div id="trail" aria-hidden="true"></div>
+
+<!-- ══════════ SCROLL PROGRESS ══════════ -->
+<div id="progress" aria-hidden="true"><span></span></div>
+
+<!-- ══════════ TOP NAV ══════════ -->
+<nav id="nav">
+  <a class="nav-logo" href="#hero">A<span>♡</span>L</a>
+  <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#hero">Awal</a></li>
+    <li><a href="#hitung">Kita</a></li>
+    <li><a href="#alasan">Alasan</a></li>
+    <li><a href="#cerita">Cerita</a></li>
+    <li><a href="#sekolah">Sekolah</a></li>
+    <li><a href="#rumah">Rumah</a></li>
+    <li><a href="#video">Video</a></li>
+    <li><a href="#surat">Surat</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<header id="hero" class="hero">
+  <div class="hero-bg" style="background-image:url('assets/img/cover.jpg')"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-sparkles" id="heroSparkles" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="hero-kicker">Sebuah persembahan kecil</p>
+    <h1 class="hero-title" id="heroTitle" data-text="Album Kenangan Kita">Album Kenangan Kita</h1>
+    <p class="hero-names">
+      <span class="name">aa</span>
+      <span class="amp">&amp;</span>
+      <span class="name">lalaa</span>
+    </p>
+    <p class="hero-sub">Setiap foto punya cerita, dan setiap cerita tentangmu adalah favoritku.</p>
+    <div class="hero-actions">
+      <a href="#sekolah" class="btn btn-primary">Lihat Kenangan <span class="btn-heart">♡</span></a>
+      <a href="#surat" class="btn btn-ghost">Baca Surat</a>
+    </div>
+    <p class="hero-hint">💗 coba klik di mana aja di halaman ini</p>
+  </div>
+  <a href="#hitung" class="scroll-cue" aria-label="Gulir ke bawah"><span></span></a>
+</header>
+
+<main>
+
+<!-- ══════════ COUNTER ══════════ -->
+<section id="hitung" class="section counter-section">
+  <div class="wrap">
+    <p class="section-kicker reveal">Sejak hari itu</p>
+    <h2 class="section-title reveal">Kita Masih Berjalan Bersama</h2>
+    <p class="section-lead reveal" id="sinceText"></p>
+
+    <div class="counter-grid">
+      <div class="count-card reveal">
+        <div class="count-emoji">📅</div>
+        <div class="count-num" data-count="days">0</div>
+        <div class="count-label">Hari</div>
+      </div>
+      <div class="count-card reveal">
+        <div class="count-emoji">⏰</div>
+        <div class="count-num" data-count="hours">0</div>
+        <div class="count-label">Jam</div>
+      </div>
+      <div class="count-card reveal">
+        <div class="count-emoji">📷</div>
+        <div class="count-num" data-count="photos">0</div>
+        <div class="count-label">Foto Kenangan</div>
+      </div>
+      <div class="count-card reveal">
+        <div class="count-emoji">🎬</div>
+        <div class="count-num" data-count="videos">0</div>
+        <div class="count-label">Video Kenangan</div>
+      </div>
+    </div>
+
+    <div class="today-chip reveal">
+      <span class="today-emoji">🌷</span>
+      <span>Hari ini: <strong id="todayText"></strong></span>
+      <span class="today-emoji">🌷</span>
+    </div>
+
+    <button class="flip-card reveal" id="flipCard" type="button" aria-label="Buka pesan rahasia">
+      <span class="flip-inner">
+        <span class="flip-front">💌 Buka pesan rahasia</span>
+        <span class="flip-back">aa sayang lalaa, hari ini dan selalu 💗</span>
+      </span>
+    </button>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,40 C240,90 480,0 720,40 C960,80 1200,10 1440,45 L1440,90 L0,90 Z"/></svg></div>
+
+<!-- ══════════ LOVE O METER ══════════ -->
+<section id="meter" class="section meter-section">
+  <div class="wrap narrow">
+    <p class="section-kicker reveal">Cek dulu deh</p>
+    <h2 class="section-title reveal">Seberapa Sayang aa?</h2>
+    <p class="section-lead reveal">Tekan tombolnya… jujur aa nggak bisa ukur ini.</p>
+    <div class="meter-wrap reveal">
+      <div class="meter-heart" id="meterHeart">💗</div>
+      <div class="meter-track"><span id="meterFill"></span><b id="meterPct">0%</b></div>
+      <button class="btn btn-primary" id="meterBtn" type="button">Ukur Sekarang 💘</button>
+      <p class="meter-note" id="meterNote">Pencet ya, jangan malu-malu~</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ALASAN ══════════ -->
+<section id="alasan" class="section reasons-section alt">
+  <div class="wrap">
+    <p class="section-kicker reveal">Hal-hal kecil</p>
+    <h2 class="section-title reveal">Alasan aa Suka lalaa</h2>
+    <p class="section-lead reveal">Nggak akan habis walau ditulis sampai kapan pun.</p>
+    <div class="reasons-grid">
+      <div class="reason-card reveal"><span class="r-emoji">😊</span><h3>Senyummu</h3><p>Yang bikin hari paling biasa jadi terasa spesial.</p></div>
+      <div class="reason-card reveal"><span class="r-emoji">😂</span><h3>Tawamu</h3><p>Nggak pernah gagal bikin aa ikut ketawa.</p></div>
+      <div class="reason-card reveal"><span class="r-emoji">🤗</span><h3>Perhatianmu</h3><p>Kecil-kecil tapi selalu ngena banget.</p></div>
+      <div class="reason-card reveal"><span class="r-emoji">🌟</span><h3>Cara lalaa Jadi lalaa</h3><p>Nggak perlu jadi siapa pun, cukup jadi dirimu sendiri.</p></div>
+      <div class="reason-card reveal"><span class="r-emoji">🫶</span><h3>Sabarmu</h3><p>Nemenin aa yang kadang bikin ribet, tanpa banyak ngeluh.</p></div>
+      <div class="reason-card reveal"><span class="r-emoji">🎧</span><h3>Cerita-ceritamu</h3><p>Hal-hal sederhana pun jadi menarik kalau dari lalaa.</p></div>
+    </div>
+    <p class="reasons-more reveal">…dan masih seribu alasan lagi yang nggak muat di sini 💞</p>
+  </div>
+</section>
+
+<!-- ══════════ CERITA / TIMELINE ══════════ -->
+<section id="cerita" class="section story-section">
+  <div class="wrap">
+    <p class="section-kicker reveal">Perjalanan kita</p>
+    <h2 class="section-title reveal">Cerita Kita</h2>
+    <p class="section-lead reveal">Bab-bab kecil yang membuat kisah ini terasa lengkap.</p>
+
+    <ol class="timeline">
+      <li class="tl-item reveal">
+        <div class="tl-dot">🌱</div>
+        <div class="tl-body">
+          <h3>Awal Bertemu</h3>
+          <p>Tempat di mana semuanya dimulai. Sebuah sapaan biasa yang ternyata jadi awal dari semua hal luar biasa.</p>
+        </div>
+      </li>
+      <li class="tl-item reveal">
+        <div class="tl-dot">🏫</div>
+        <div class="tl-body">
+          <h3>Hari-hari di Sekolah</h3>
+          <p>Belajar, bercanda, dan diam-diam saling mencari. Sekolah jadi tempat favorit karena ada lalaa di dalamnya.</p>
+        </div>
+      </li>
+      <li class="tl-item reveal">
+        <div class="tl-dot">🏡</div>
+        <div class="tl-body">
+          <h3>Waktu di Rumah</h3>
+          <p>Momen paling sederhana tapi paling hangat. Sekadar duduk bareng pun rasanya sudah cukup.</p>
+        </div>
+      </li>
+      <li class="tl-item reveal">
+        <div class="tl-dot">🎬</div>
+        <div class="tl-body">
+          <h3>Momen yang Terekam</h3>
+          <p>Sesuatu yang bahkan foto pun kesulitan menangkapnya — tawa, gerak, dan kita.</p>
+        </div>
+      </li>
+      <li class="tl-item reveal">
+        <div class="tl-dot">💞</div>
+        <div class="tl-body">
+          <h3>Hari Ini &amp; Seterusnya</h3>
+          <p>Masih banyak halaman kosong di album ini. Dan aa ingin mengisinya terus — bersamamu.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<div class="divider flip" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,40 C240,90 480,0 720,40 C960,80 1200,10 1440,45 L1440,90 L0,90 Z"/></svg></div>
+
+<!-- ══════════ GALERI SEKOLAH ══════════ -->
+<section id="sekolah" class="section gallery-section alt">
+  <div class="wrap">
+    <p class="section-kicker reveal">Bab satu</p>
+    <h2 class="section-title reveal">Di Sekolah</h2>
+    <p class="section-lead reveal">Seragam, tawa, dan kenangan yang tak akan pernah kita ulang.</p>
+    <div class="gallery" id="gallerySekolah"></div>
+  </div>
+</section>
+
+<!-- ══════════ NOTE MANIS (acak) ══════════ -->
+<section class="mini-note-band">
+  <div class="wrap">
+    <button class="note-card reveal" id="noteCard" type="button" aria-live="polite">
+      <span class="note-emoji" id="noteEmoji">💌</span>
+      <span class="note-text" id="noteText">Klik untuk pesan manis~</span>
+      <span class="note-tap">ketuk aa 🫰</span>
+    </button>
+  </div>
+</section>
+
+<!-- ══════════ GALERI RUMAH ══════════ -->
+<section id="rumah" class="section gallery-section">
+  <div class="wrap">
+    <p class="section-kicker reveal">Bab dua</p>
+    <h2 class="section-title reveal">Di Rumah</h2>
+    <p class="section-lead reveal">Tempat paling nyaman bukanlah bangunannya, tapi orang yang ada di dalamnya.</p>
+    <div class="gallery" id="galleryRumah"></div>
+  </div>
+</section>
+
+
+<div class="divider" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,40 C240,90 480,0 720,40 C960,80 1200,10 1440,45 L1440,90 L0,90 Z"/></svg></div>
+
+<!-- ══════════ VIDEO ══════════ -->
+<section id="video" class="section video-section alt">
+  <div class="wrap">
+    <p class="section-kicker reveal">Momen bergerak</p>
+    <h2 class="section-title reveal">Satu Video, Seribu Rasa</h2>
+    <p class="section-lead reveal">Sesuatu yang tak bisa ditangkap foto — tawa dan gerak kita.</p>
+    <div class="video-frame reveal">
+      <video id="mainVideo" controls playsinline preload="metadata" poster="assets/video/poster.jpg">
+        <source src="assets/video/kenangan.mp4" type="video/mp4" />
+      </video>
+      <div class="video-glow" aria-hidden="true"></div>
+      <div class="video-tape">🎞️ rewind ke momen kita</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SURAT ══════════ -->
+<section id="surat" class="section letter-section">
+  <div class="wrap narrow">
+    <p class="section-kicker reveal">Untuk lalaa</p>
+    <h2 class="section-title reveal">Surat Kecil</h2>
+    <article class="letter reveal">
+      <span class="letter-sticker s1">💌</span>
+      <span class="letter-sticker s2">🌸</span>
+      <span class="letter-sticker s3">🧸</span>
+      <p class="letter-open">Untuk lalaa yang selalu aa pikirkan,</p>
+      <p>Terima kasih sudah jadi bagian paling indah dari hari-hari aa sayaanng. Lewat website kecil ini, aa mau ngumpulin semua kenangan kita di satu tempat,supaya kapan pun kita rindu, kita bisa kembali ke momen-momen itu dalam sekejap.</p>
+      <p>Mungkin album ini belum lengkap. Tapi itu justru alasannya: masih banyak kenangan yang menunggu untuk kita buat bersama. Dan aa udah gak sabar ngisi halamannya satu per satu.</p>
+      <p>Sampai kapan pun, aa mau terus ada di samping lalaa.LOVE YOU SOOOO MUCCHHHHH SAYAANNNNNNGGGGGG😆😆😆🥰🥰🥰🥰😘😘😘</p>
+      <p class="letter-sign">Dengan sayang,<br /><span class="sign-name">aa</span></p>
+    </article>
+    <div class="letter-hearts" aria-hidden="true"><span>♡</span><span>♡</span><span>♡</span></div>
+    <button class="btn btn-primary reveal hug-btn" id="hugBtn" type="button">Kirim Peluk Virtual 🤗</button>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <p class="footer-note">Dibuat dengan ♡ untuk kenangan kita.</p>
+  <p class="footer-year" id="year"></p>
+</footer>
+
+<!-- ══════════ BACK TO TOP ══════════ -->
+<button id="toTop" class="to-top" aria-label="Kembali ke atas">▲</button>
+
+<!-- ══════════ LIGHTBOX ══════════ -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lb-close" aria-label="Tutup">&times;</button>
+  <button class="lb-prev" aria-label="Sebelumnya">&#8249;</button>
+  <figure class="lb-stage">
+    <img id="lbImg" src="" alt="" />
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+  <button class="lb-next" aria-label="Selanjutnya">&#8250;</button>
+  <span class="lb-counter" id="lbCounter"></span>
+</div>
+
+<!-- ══════════ TOAST / CONFETTI ══════════ -->
+<div id="confetti" aria-hidden="true"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
